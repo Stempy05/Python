@@ -1,0 +1,61 @@
+import urllib.request
+urllib.request.urlretrieve ("https://s3.amazonaws.com/tcmg476/http_access_log", "E:/Downloads/log1.txt")
+
+x = 0
+y = 0
+file = open('E:/Downloads/log1.txt')
+
+for line in file:
+
+    if line[0:7] == "local -":
+        y = y + 1
+        if line[18:22] == "1995" or line[14:22] == "Dec/1994" or line[14:22] == "Nov/1994":
+            x = x + 1         
+        if line[14:22] == "Oct/1994" and line[11:12] != "10":
+            x = x + 1
+        if line[14:22] == "Oct/1994" and line[11:12] != "9":
+            x = x + 1
+        if line[14:22] == "Oct/1994" and line[11:12] != "8":
+            x = x + 1
+        if line[14:22] == "Oct/1994" and line[11:12] != "7":
+            x = x + 1
+        if line[14:22] == "Oct/1994" and line[11:12] != "6":
+            x = x + 1
+        if line[14:22] == "Oct/1994" and line[11:12] != "5":
+            x = x + 1        
+        if line[14:22] == "Oct/1994" and line[11:12] != "4":
+            x = x + 1        
+        if line[14:22] == "Oct/1994" and line[11:12] != "3":
+            x = x + 1        
+        if line[14:22] == "Oct/1994" and line[11:12] != "2":
+            x = x + 1        
+        if line[14:22] == "Oct/1994" and line[11:12] != "1":
+            x = x + 1
+
+    if line[0:8] == "remote -":
+        y = y + 1
+        if line[18:22] == "1995" or line[14:22] == "Dec/1994" or line[15:23] == "Nov/1994":
+            x = x + 1
+        if line[15:23] == "Oct/1994" and line[12:14] != "10":
+            x = x + 1
+        if line[15:23] == "Oct/1994" and line[12:14] != "09":
+            x = x + 1
+        if line[15:23] == "Oct/1994" and line[12:14] != "08":
+            x = x + 1
+        if line[15:23] == "Oct/1994" and line[12:14] != "07":
+            x = x + 1
+        if line[15:23] == "Oct/1994" and line[12:14] != "06":
+            x = x + 1
+        if line[15:23] == "Oct/1994" and line[12:14] != "05":
+            x = x + 1        
+        if line[15:23] == "Oct/1994" and line[12:14] != "04":
+            x = x + 1        
+        if line[15:23] == "Oct/1994" and line[12:14] != "03":
+            x = x + 1        
+        if line[15:23] == "Oct/1994" and line[12:14] != "02":
+            x = x + 1        
+        if line[15:23] == "Oct/1994" and line[12:14] != "01":
+            x = x + 1
+
+print ('There were', x, 'requests made in the last year')
+print ('There were', y, 'requests made in total')
